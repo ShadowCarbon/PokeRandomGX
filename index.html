@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Hub</title>
+    <title>Pokémon Randomizer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,22 +29,38 @@
             text-decoration: none;
             border-radius: 5px;
             margin: 10px;
+            cursor: pointer;
+            border: none;
         }
         .btn:hover {
             background-color: #2a2fa3;
+        }
+        input[type="file"] {
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <header>
-        Welcome to the Pokémon Hub!
+        Pokémon Randomizer ZX
     </header>
     <div class="container">
-        <h1>Explore the Pokémon Universe</h1>
-        <p>Your go-to place for Pokémon bots, randomizers, and more!</p>
-        <a href="#pokedex" class="btn">Pokédex</a>
-        <a href="#bots" class="btn">Discord Bot</a>
-        <a href="#randomizer" class="btn">Randomizer</a>
+        <h1>Randomize Your Pokémon Game!</h1>
+        <p>Upload a Pokémon ROM and customize your randomized adventure.</p>
+        <input type="file" id="romUpload" accept=".gba,.nds">
+        <button class="btn" onclick="randomizeROM()">Randomize!</button>
+        <p id="status"></p>
     </div>
+    <script>
+        function randomizeROM() {
+            const fileInput = document.getElementById('romUpload');
+            const status = document.getElementById('status');
+            if (fileInput.files.length === 0) {
+                status.textContent = "Please upload a ROM first.";
+                return;
+            }
+            status.textContent = "Randomizing... (Feature coming soon!)";
+        }
+    </script>
 </body>
 </html>
